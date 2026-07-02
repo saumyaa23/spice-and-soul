@@ -246,27 +246,49 @@
             50% { opacity: 0.5; transform: scale(0.8); }
         }
 
-        .hero-main-title {
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            line-height: 1.1;
+        /* ===== HERO TITLE ===== */
+        .hero-title-wrapper {
+            margin-bottom: 5px;
         }
 
-        .hero-main-title .line-1 {
-            display: block;
-            font-size: 1.4rem;
+        .hero-sub-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             font-weight: 400;
             color: var(--accent-gold);
-            letter-spacing: 6px;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 8px;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .hero-main-title .line-2 {
-            display: block;
+        .hero-sub-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+            animation: underlineExpand 1.5s ease forwards;
+        }
+
+        @keyframes underlineExpand {
+            from { width: 0; opacity: 0; }
+            to { width: 100%; opacity: 1; }
+        }
+
+        .hero-main-title {
+            font-family: 'Playfair Display', serif;
             font-size: 5rem;
-            margin-top: 0;
+            font-weight: 900;
+            line-height: 1.1;
             color: #fff;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            animation: fadeInUp 0.9s ease;
         }
 
         .hero-main-title .highlight {
@@ -347,10 +369,12 @@
             transform: translateY(-3px);
         }
 
+        /* ===== STATS ===== */
         .hero-stats {
             display: flex;
             gap: 40px;
             animation: fadeInUp 1.4s ease;
+            margin-top: 40px;
         }
 
         .hero-stat {
@@ -359,7 +383,7 @@
         }
 
         .hero-stat .stat-number {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--accent-gold);
             line-height: 1;
@@ -370,7 +394,12 @@
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 3px;
+            margin-top: 4px;
+        }
+
+        .hero-stat .stat-label i {
+            margin-right: 4px;
+            color: var(--accent-gold);
         }
 
         /* ===== HERO CIRCLE ===== */
@@ -758,7 +787,6 @@
             margin-left: 6px;
         }
 
-        /* ===== ADD TO CART BUTTON ===== */
         .add-to-cart {
             background: var(--accent-gold);
             color: #0a0a0a;
@@ -1213,7 +1241,7 @@
         /* ============================================================ */
 
         @media (max-width: 992px) {
-            .hero-main-title .line-2 {
+            .hero-main-title {
                 font-size: 4rem;
             }
             .hero-circle {
@@ -1248,10 +1276,10 @@
                 text-align: center;
                 padding: 100px 0 40px;
             }
-            .hero-main-title .line-2 {
+            .hero-main-title {
                 font-size: 3rem;
             }
-            .hero-main-title .line-1 {
+            .hero-sub-title {
                 font-size: 1rem;
                 letter-spacing: 4px;
             }
@@ -1265,6 +1293,7 @@
             .hero-stats {
                 justify-content: center;
                 gap: 25px;
+                margin-top: 30px;
             }
             .hero-stat .stat-number {
                 font-size: 1.3rem;
@@ -1307,8 +1336,12 @@
         }
 
         @media (max-width: 576px) {
-            .hero-main-title .line-2 {
+            .hero-main-title {
                 font-size: 2.2rem;
+            }
+            .hero-sub-title {
+                font-size: 0.8rem;
+                letter-spacing: 3px;
             }
             .trust-badge {
                 font-size: 0.55rem;
@@ -1394,12 +1427,14 @@
                 <div class="col-lg-7 hero-content">
                     <div class="trust-badge">
                         <span class="trust-dot"></span>
-                        Trusted by 5000+ food lovers
+                        ⭐ Trusted by 5000+ food lovers
                     </div>
-                    <h1 class="hero-main-title">
-                        <span class="line-1">Welcome to</span>
-                        <span class="line-2">Spice & <span class="highlight">Soul</span></span>
-                    </h1>
+                    <div class="hero-title-wrapper">
+                        <span class="hero-sub-title">Welcome to</span>
+                        <h1 class="hero-main-title">
+                            Spice & <span class="highlight">Soul</span>
+                        </h1>
+                    </div>
                     <p class="hero-description">
                         Order authentic Mumbai-style food online. Fresh, delicious, and delivered
                         straight to your doorstep. Taste the tradition!
@@ -1411,15 +1446,15 @@
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <span class="stat-number">10+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-label"><i class="bi bi-award"></i> Years Experience</span>
                         </div>
                         <div class="hero-stat">
                             <span class="stat-number">120+</span>
-                            <span class="stat-label">Signature Dishes</span>
+                            <span class="stat-label"><i class="bi bi-egg-fried"></i> Signature Dishes</span>
                         </div>
                         <div class="hero-stat">
                             <span class="stat-number">4.8⭐</span>
-                            <span class="stat-label">Guest Rating</span>
+                            <span class="stat-label"><i class="bi bi-star"></i> Guest Rating</span>
                         </div>
                     </div>
                 </div>
@@ -1701,7 +1736,7 @@
                 <div class="col-lg-3 col-md-6" data-item='{"name":"Gulab Jamun","price":149,"type":"Veg"}'>
                     <div class="menu-card">
                         <div class="menu-icon"><i class="bi bi-cake"></i></div>
-                        <h5>Gulab Jamun <span class="veg-badge">VEG</span></h5>
+                        <h5>🍡 Gulab Jamun <span class="veg-badge">VEG</span></h5>
                         <p>Soft dumplings in rose syrup</p>
                         <span class="price">₹149</span>
                         <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
@@ -1711,7 +1746,7 @@
                 <div class="col-lg-3 col-md-6" data-item='{"name":"Masala Chai","price":99,"type":"Veg"}'>
                     <div class="menu-card">
                         <div class="menu-icon"><i class="bi bi-cup-straw"></i></div>
-                        <h5>Masala Chai <span class="veg-badge">VEG</span></h5>
+                        <h5>☕ Masala Chai <span class="veg-badge">VEG</span></h5>
                         <p>Spiced tea with cardamom & ginger</p>
                         <span class="price">₹99</span>
                         <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
@@ -1721,7 +1756,7 @@
                 <div class="col-lg-3 col-md-6" data-item='{"name":"Mango Lassi","price":179,"type":"Veg"}'>
                     <div class="menu-card">
                         <div class="menu-icon"><i class="bi bi-droplet"></i></div>
-                        <h5>Mango Lassi <span class="veg-badge">VEG</span></h5>
+                        <h5>🥭 Mango Lassi <span class="veg-badge">VEG</span></h5>
                         <p>Sweet mango yogurt smoothie</p>
                         <span class="price">₹179</span>
                         <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
@@ -1731,7 +1766,7 @@
                 <div class="col-lg-3 col-md-6" data-item='{"name":"Garlic Naan","price":89,"type":"Veg"}'>
                     <div class="menu-card">
                         <div class="menu-icon"><i class="bi bi-box"></i></div>
-                        <h5>Garlic Naan <span class="veg-badge">VEG</span></h5>
+                        <h5>🧄 Garlic Naan <span class="veg-badge">VEG</span></h5>
                         <p>Fresh tandoori bread with garlic & butter</p>
                         <span class="price">₹89</span>
                         <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
@@ -1901,7 +1936,7 @@
                         </div>
                     </form>
 
-                    <!-- ===== TWO WHATSAPP BUTTONS WITH CLEAR LABELS ===== -->
+                    <!-- ===== TWO WHATSAPP BUTTONS ===== -->
                     <div class="mt-3" style="display: flex; gap: 10px; flex-wrap: wrap;">
                         
                         <!-- Order Button -->
@@ -1909,7 +1944,7 @@
                             <i class="bi bi-whatsapp"></i> 🍽️ Order Food
                         </a>
 
-                        <!-- Reservation Button - CLEAR LABEL -->
+                        <!-- Reservation Button -->
                         <a href="https://wa.me/918433602683?text=Hello!%20I%20want%20to%20make%20a%20reservation%20at%20Spice%20%26%20Soul" target="_blank" class="btn-maroon" style="border-color: #d4a574; color: #d4a574; background: transparent; flex: 1; text-align: center; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;">
                             <i class="bi bi-calendar-check"></i> 📅 Book a Table
                         </a>
@@ -1918,8 +1953,8 @@
                     <!-- Small Help Text -->
                     <p style="color: var(--text-secondary); font-size: 0.7rem; margin-top: 10px; text-align: center; opacity: 0.6;">
                         <i class="bi bi-info-circle"></i> 
-                        <strong>🍽️ Order Food</strong> — Home delivery ke liye &nbsp;|&nbsp; 
-                        <strong>📅 Book a Table</strong> — Restaurant mein table book karne ke liye
+                        <strong>🍽️ Order Food</strong> — For home delivery &nbsp;|&nbsp; 
+                        <strong>📅 Book a Table</strong> — For restaurant reservation
                     </p>
                 </div>
             </div>
@@ -2025,7 +2060,6 @@
 
         let cart = [];
 
-        // ===== ADD TO CART =====
         function addToCart(button) {
             const card = button.closest('.menu-card');
             const parent = card.parentElement;
@@ -2054,7 +2088,6 @@
             updateCart();
         }
 
-        // ===== UPDATE CART =====
         function updateCart() {
             const cartItemsContainer = document.getElementById('cartItems');
             const cartTotalSection = document.getElementById('cartTotalSection');
@@ -2122,7 +2155,6 @@
             orderTotalSpan.textContent = `₹${total}`;
         }
 
-        // ===== CHANGE QUANTITY =====
         function changeQuantity(index, change) {
             cart[index].quantity += change;
             if (cart[index].quantity <= 0) {
@@ -2131,13 +2163,11 @@
             updateCart();
         }
 
-        // ===== REMOVE ITEM =====
         function removeItem(index) {
             cart.splice(index, 1);
             updateCart();
         }
 
-        // ===== CLEAR CART =====
         function clearCart() {
             if (confirm('Are you sure you want to clear your cart?')) {
                 cart = [];
@@ -2145,21 +2175,15 @@
             }
         }
 
-        // ===== TOGGLE CART SIDEBAR =====
         function toggleCart() {
             const sidebar = document.getElementById('cartSidebar');
             sidebar.classList.toggle('open');
         }
 
-        // ===== PROCEED TO CHECKOUT =====
         function proceedToCheckout() {
             toggleCart();
             document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
         }
-
-        // ============================================================
-        // ===== PLACE ORDER ===========================================
-        // ============================================================
 
         function placeOrder(event) {
             event.preventDefault();
@@ -2210,10 +2234,6 @@
             return false;
         }
 
-        // ============================================================
-        // ===== ACTIVE NAV LINK =======================================
-        // ============================================================
-
         document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.navbar-custom .nav-link');
@@ -2235,10 +2255,6 @@
                 });
             });
         });
-
-        // ============================================================
-        // ===== CLOSE CART ON ESC =====================================
-        // ============================================================
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
